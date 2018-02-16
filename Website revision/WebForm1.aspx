@@ -14,13 +14,13 @@
                 <tbody>
                     <tr>
                         <td>Home</td>
-                        <td><a>Revision</a></td>
+                        <td><a href="WebForm1.aspx">Revision</a></td>
                     </tr>   
                 </tbody>
             </table>
         </div>
         <div id="body">
-            <iframe id="iframe" src="http://tylerlh.github.com/github-latest-commits-widget/?username=StageJuice&repo=WebApplication1&limit=10" allowtrancparency="true"  frameborder="0" scrolling="no" width="502px" height="252px"></iframe>
+            <iframe id="iframe" src="http://tylerlh.github.com/github-latest-commits-widget/?username=StageJuice&repo=WebApplication1&limit=10"  width="502px" height="252px"></iframe>
         </div>
     </form>
 </body>
