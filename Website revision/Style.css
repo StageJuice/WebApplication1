@@ -1,12 +1,59 @@
-﻿#header
+﻿.container
 {
-    position:fixed;
-    background-color:dodgerblue;
-    width:1920px;
-    height: 40px;
-    color:white;
+    display:flex;
 }
-#iframe
-{
 
+.repo 
+{
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.gb-repository 
+{
+    min-height: 500px;
+    border: 1px solid #DDD;
+    max-width: 350px;
+}
+
+.gh-link, .gh-link:hover 
+{
+    text-decoration: none;
+}
+
+.gh-container 
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-family: 'Noto Sans',sans-serif;
+}
+
+.gh-repositories .language 
+{
+    text-align: left;
+}
+
+.gh-repositories .names 
+{
+    flex: 2;
+    text-align: left;
+}
+
+.gh-repositories .names div 
+{
+    padding: 5px 0;
+    text-overflow: ellipsis;
+}
+
+.gh-link {
+    color: #4078C0;
 }

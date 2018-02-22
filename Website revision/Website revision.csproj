@@ -74,8 +74,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Script.js" />
     <Content Include="Style.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
