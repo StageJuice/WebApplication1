@@ -15,13 +15,13 @@ namespace Website_revision
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        
 
-
-        protected async System.Threading.Tasks.Task Page_LoadAsync(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             var github = new GitHubClient(new Octokit.ProductHeaderValue("Website revision"));
-            var user = await github.User.Get("StageJuice");
-            lblRepo.Text = user.PublicRepos.ToString();
+            var user = github.User.Get("StageJuice");
+            lblRepo.Text = ;
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
