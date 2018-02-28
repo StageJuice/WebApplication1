@@ -19,9 +19,9 @@ namespace Website_revision
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var github = new GitHubClient(new Octokit.ProductHeaderValue("Website revision"));
-            var user = github.User.Get("StageJuice");
-            lblRepo.Text = ;
+            //var github = new GitHubClient(new Octokit.ProductHeaderValue("Website revision"));
+            //var user = github.User.Get("StageJuice");
+            //lblRepo.Text = ;
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
