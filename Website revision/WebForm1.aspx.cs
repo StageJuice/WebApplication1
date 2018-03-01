@@ -8,20 +8,23 @@ using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
 using System.IO;
-using Octokit;
+using Newtonsoft.Json;
 
 
 namespace Website_revision
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        
-
+        public class items
+        {
+            public string name { get; set; }
+            public string html_url { get; set; }
+            public string language { get; set; }
+            public string commits_url { get; set; }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //var github = new GitHubClient(new Octokit.ProductHeaderValue("Website revision"));
-            //var user = github.User.Get("StageJuice");
-            //lblRepo.Text = ;
+            
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
@@ -33,12 +36,21 @@ namespace Website_revision
             request.Method = "GET";
             request.UserAgent = "Website revision";
 
+            string jsonString;
             using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
             {
-                    StreamReader reader = new StreamReader(response.GetResponseStream());
-                    lblRepo.Text = reader.ReadToEnd();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                jsonString = reader.ReadToEnd();
             }
-            
+
+            List<items> item = JsonConvert.DeserializeObject<List<items>>(jsonString);
+
+            foreach(var items in item)
+            {
+                hyperderp.InnerText = "name: " + items.name.ToString();
+                hyperderp.HRef = items.html_url.ToString();  
+            }
+
         }
     }
 }
