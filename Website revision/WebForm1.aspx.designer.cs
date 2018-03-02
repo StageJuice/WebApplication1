@@ -40,21 +40,12 @@ namespace Website_revision {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// lblRepo control.
+        /// Repo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepo;
-        
-        /// <summary>
-        /// hyperderp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor hyperderp;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Repo;
     }
 }

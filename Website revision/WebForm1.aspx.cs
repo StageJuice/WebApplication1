@@ -22,6 +22,7 @@ namespace Website_revision
             public string language { get; set; }
             public string commits_url { get; set; }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -32,25 +33,33 @@ namespace Website_revision
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
-            HttpWebRequest request = WebRequest.Create("https://api.github.com/users/"+ txtUsername.Text + "/repos?per_page=10") as HttpWebRequest;
+            HttpWebRequest request = WebRequest.Create("https://api.github.com/users/"+ txtUsername.Text + "/repos") as HttpWebRequest;
             request.Method = "GET";
             request.UserAgent = "Website revision";
 
-            string jsonString;
-            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            try
             {
-                StreamReader reader = new StreamReader(response.GetResponseStream());
-                jsonString = reader.ReadToEnd();
+                string jsonString;
+                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+                {
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    jsonString = reader.ReadToEnd();
+                }
+
+                List<items> item = JsonConvert.DeserializeObject<List<items>>(jsonString);
+
+                foreach (var items in item)
+                {
+                    Response.Write("<a class='reponame' href=" + items.html_url.ToString() + ">" + items.name.ToString() + "</a> <br/>");
+                    Response.Write("<div class='language '>" + items.language.ToString() + "</div>");
+                    //Repo.InnerText = Response.Write("<a href = " + items.html_url.ToString() + " > " + items.name.ToString() + "</ a >");
+                }
+                return;
             }
-
-            List<items> item = JsonConvert.DeserializeObject<List<items>>(jsonString);
-
-            foreach(var items in item)
+            catch(Exception ex)
             {
-                hyperderp.InnerText = "name: " + items.name.ToString();
-                hyperderp.HRef = items.html_url.ToString();  
+                Console.WriteLine("{0} Execption caught",ex);
             }
-
         }
     }
 }
