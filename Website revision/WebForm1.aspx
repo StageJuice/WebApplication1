@@ -12,7 +12,10 @@
         <div>
             <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>   
             <asp:Button ID="btnSearch" runat="server" Text="Zoeken" OnClick="btnSearch_Click" />
-            <div ID="Repo" runat="server" ></div>
+            <div>
+                <asp:Label ID="lblUsername" runat="server"></asp:Label>
+                <asp:Label ID="lblAmmount" runat="server"></asp:Label>
+            </div>
         </div>
     </form>
 </body>
