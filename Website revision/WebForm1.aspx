@@ -10,11 +10,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>   
-            <asp:Button ID="btnSearch" runat="server" Text="Zoeken" OnClick="btnSearch_Click" />
             <div>
                 <asp:Label ID="lblUsername" runat="server"></asp:Label>
                 <asp:Label ID="lblAmmount" runat="server"></asp:Label>
+            </div>
+            <div>
+                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>   
+                <asp:Button ID="btnSearch" runat="server" Text="Zoeken" OnClick="btnSearch_Click" />
             </div>
         </div>
     </form>

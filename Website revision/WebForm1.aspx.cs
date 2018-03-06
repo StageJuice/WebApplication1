@@ -10,8 +10,6 @@ using System.Net.Http.Headers;
 using System.IO;
 using Newtonsoft.Json;
 
-
-
 namespace Website_revision
 {
     public partial class WebForm1 : System.Web.UI.Page
@@ -22,7 +20,7 @@ namespace Website_revision
             public string html_url { get; set; }
             public string language { get; set; }
             public string commits_url { get; set; }
-            public string login { get; set; }
+            public string login  { get; set; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -32,16 +30,13 @@ namespace Website_revision
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            
-            
-
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             HttpWebRequest request = WebRequest.Create("https://api.github.com/users/"+ txtUsername.Text + "/repos") as HttpWebRequest;
-            HttpWebRequest request2 = WebRequest.Create("https://api.github.com/users/" + txtUsername.Text) as HttpWebRequest;
             request.Method = "GET";
             request.UserAgent = "Website revision";
+            request.Headers.Add("Authorization", string.Format("Token {0}", "70355211461b220f9144feb3ab4bce8e401f5c69"));
 
             try
             {
@@ -53,13 +48,9 @@ namespace Website_revision
                 }
 
                 List<items> item = JsonConvert.DeserializeObject<List<items>>(jsonString);
-
                 
-
                 foreach (var items in item)
                 {
-
-                    //Response.Write("<div class='language '>" + items.language.ToString() + "</div>");
                     //Repo.InnerText = Response.Write("<a href = " + items.html_url.ToString() + " > " + items.name.ToString() + "</ a >");
                     if (items.login == txtUsername.Text)
                     {
