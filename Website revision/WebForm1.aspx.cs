@@ -20,6 +20,7 @@ namespace Website_revision
             public string html_url { get; set; }
             public string language { get; set; }
             public string commits_url { get; set; }
+            public string avatar_url { get; set; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,8 +30,6 @@ namespace Website_revision
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            
-
             ServicePointManager.Expect100Continue = true;
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
@@ -42,6 +41,7 @@ namespace Website_revision
             try
             {
                 string jsonString;
+
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
                     StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -64,8 +64,10 @@ namespace Website_revision
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Deze gebruiker heeft geen repositories')", true);
                     }
                 }
+
                 return;
             }
+
             catch(Exception ex)
             {
                 Console.WriteLine("{0} Execption caught",ex);

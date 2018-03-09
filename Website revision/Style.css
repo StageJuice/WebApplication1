@@ -1,8 +1,10 @@
-﻿.reponame:hover {
+﻿.reponame:hover 
+{
     color: black;
     text-decoration: underline;
 }
-.reponame:visited {
+.reponame:visited 
+{
     color: black;
     text-decoration: none;
 }
@@ -21,7 +23,8 @@
     color: #333;
     font-family: 'Times New Roman', Times, serif;
 }
-.reponame, .language
+.reponame
 {
-    padding: 5px 0;
+    flex:2;
+    text-align:left;
 }
