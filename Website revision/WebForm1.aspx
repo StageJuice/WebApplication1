@@ -17,7 +17,7 @@
             <hr />
             <div>
                 <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>   
-                <asp:Button ID="btnSearch" runat="server" Text="Zoeken" OnClick="btnSearch_Click" />
+                <asp:Button ID="btnSearch" runat="server" Text="Zoeken" OnClick="btnSearch_Click"/>
             </div>
         </div>
     </form>

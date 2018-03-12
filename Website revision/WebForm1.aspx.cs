@@ -20,7 +20,6 @@ namespace Website_revision
             public string html_url { get; set; }
             public string language { get; set; }
             public string commits_url { get; set; }
-            public string avatar_url { get; set; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -53,16 +52,17 @@ namespace Website_revision
                 foreach (var items in item)
                 {
                     //Repo.InnerText = Response.Write("<a href = " + items.html_url.ToString() + " > " + items.name.ToString() + "</ a >");
-                    if (item.Count >= 1)
-                    {
+                    //if (item.Count >= 1)
+                    //{
                         lblUsername.Text = "Gevonden repositories van gebruiker: " + txtUsername.Text + ".";
                         lblAmmount.Text = " Aantal gevonden repositories: " + item.Count + ".";
                         Response.Write("<div class='container'> <a class='reponame' href=" + items.html_url.ToString() + ">" + items.name.ToString() + "</a> <p class='language'>" + items.language.ToString() + "</p> </div>");
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Deze gebruiker heeft geen repositories')", true);
-                    }
+                        Response.Write("<input type='button' ID='btnClone' value='Clone' onclick='window.location.href='https://github.com/"+txtUsername.Text+"/"+items.name.ToString()+".git'' />");
+                    //}
+                    //else
+                    //{
+                    //    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Deze gebruiker heeft geen repositories')", true);
+                    //}
                 }
 
                 return;
